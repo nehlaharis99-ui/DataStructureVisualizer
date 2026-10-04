@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Data Structure Visualizer</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="hero">
+
+        <div class="hero-content">
+
+            <div class="logo">DS</div>
+
+            <h1>Data Structure Visualizer</h1>
+
+            <p>
+                Learn Data Structures Through Interactive Visualization
+            </p>
+
+            <span class="hero-tag">
+                Stack • Queue • Linked List • Expression
+            </span>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= NAVIGATION ================= -->
+
+    <nav>
+
+        <button onclick="showSection('home')">
+            🏠 Home
+        </button>
+
+        <button onclick="showSection('stack')">
+            📚 Stack
+        </button>
+
+        <button onclick="showSection('queue')">
+            🔵 Queue
+        </button>
+
+        <button onclick="showSection('expression')">
+            🧮 Expression
+        </button>
+
+        <button onclick="showSection('linkedlist')">
+            🔗 Linked List
+        </button>
+
+    </nav>
+
+
+    <main>
+
+
+        <!-- ================= HOME ================= -->
+
+        <section id="home" class="data-section active home-section">
+
+            <div class="home-content">
+
+                <span class="section-tag">
+                    DATA STRUCTURES
+                </span>
+
+                <h2>Visualize. Understand. Learn.</h2>
+
+                <p>
+                    Explore fundamental data structures and understand
+                    their operations through interactive visualization.
+                </p>
+
+                <div class="feature-grid">
+
+                    <div class="feature-card"
+                        onclick="showSection('stack')">
+
+                        <div class="feature-icon purple">
+                            📚
+                        </div>
+
+                        <h3>Stack</h3>
+
+                        <p>
+                            Learn LIFO operations using Push and Pop.
+                        </p>
+
+                    </div>
+
+
+                    <div class="feature-card"
+                        onclick="showSection('queue')">
+
+                        <div class="feature-icon blue">
+                            🔵
+                        </div>
+
+                        <h3>Queue</h3>
+
+                        <p>
+                            Understand FIFO using Enqueue and Dequeue.
+                        </p>
+
+                    </div>
+
+
+                    <div class="feature-card"
+                        onclick="showSection('expression')">
+
+                        <div class="feature-icon green">
+                            🧮
+                        </div>
+
+                        <h3>Expression</h3>
+
+                        <p>
+                            Convert Infix to Postfix and evaluate expressions.
+                        </p>
+
+                    </div>
+
+
+                    <div class="feature-card"
+                        onclick="showSection('linkedlist')">
+
+                        <div class="feature-icon pink">
+                            🔗
+                        </div>
+
+                        <h3>Linked List</h3>
+
+                        <p>
+                            Visualize nodes, links and traversal.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= STACK ================= -->
+
+        <section id="stack" class="data-section">
+
+            <span class="section-tag">
+                LINEAR DATA STRUCTURE
+            </span>
+
+            <h2>Stack Visualization</h2>
+
+            <p class="description">
+                Stack follows the
+                <b>LIFO</b>
+                principle — Last In, First Out.
+            </p>
+
+
+            <div class="visual-card">
+
+                <div class="stack-wrapper">
+
+                    <div class="stack-label">
+
+                        <span>TOP</span>
+
+                        <div class="top-arrow">
+                            ↓
+                        </div>
+
+                    </div>
+
+
+                    <div id="stack-container"
+                        class="visual-area stack-area">
+
+                        <p class="empty-message">
+                            Stack is Empty
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="controls">
+
+                <input
+                    type="number"
+                    id="stack-value"
+                    placeholder="Enter value"
+                >
+
+                <button onclick="pushStack()">
+                    Push
+                </button>
+
+                <button onclick="popStack()"
+                    class="danger-button">
+                    Pop
+                </button>
+
+                <button onclick="displayStack()"
+                    class="secondary-button">
+                    Display
+                </button>
+
+            </div>
+
+
+            <div id="stack-message"
+                class="message">
+
+                Ready for Stack operations.
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= QUEUE ================= -->
+
+        <section id="queue" class="data-section">
+
+            <span class="section-tag">
+                LINEAR DATA STRUCTURE
+            </span>
+
+            <h2>Queue Visualization</h2>
+
+            <p class="description">
+                Queue follows the
+                <b>FIFO</b>
+                principle — First In, First Out.
+            </p>
+
+
+            <div class="visual-card">
+
+                <div class="queue-wrapper">
+
+                    <div class="queue-indicators">
+
+                        <span class="front-label">
+                            FRONT
+                        </span>
+
+                        <span class="rear-label">
+                            REAR
+                        </span>
+
+                    </div>
+
+
+                    <div id="queue-container"
+                        class="visual-area queue-area">
+
+                        <p class="empty-message">
+                            Queue is Empty
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="controls">
+
+                <input
+                    type="number"
+                    id="queue-value"
+                    placeholder="Enter value"
+                >
+
+                <button onclick="enqueue()">
+                    Enqueue
+                </button>
+
+                <button onclick="dequeue()"
+                    class="danger-button">
+                    Dequeue
+                </button>
+
+                <button onclick="displayQueue()"
+                    class="secondary-button">
+                    Display
+                </button>
+
+            </div>
+
+
+            <div id="queue-message"
+                class="message">
+
+                Ready for Queue operations.
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= EXPRESSION ================= -->
+
+        <section id="expression" class="data-section">
+
+            <span class="section-tag">
+                STACK APPLICATION
+            </span>
+
+            <h2>Expression Conversion & Evaluation</h2>
+
+            <p class="description">
+                Convert Infix expressions into Postfix and evaluate
+                Postfix expressions step by step.
+            </p>
+
+
+            <!-- INFIX -->
+
+            <div class="expression-box">
+
+                <h3>
+                    Infix → Postfix
+                </h3>
+
+                <p class="small-description">
+                    Example: A+B*C
+                </p>
+
+
+                <div class="expression-input-row">
+
+                    <input
+                        type="text"
+                        id="expression-input"
+                        placeholder="Enter infix expression"
+                    >
+
+                    <button onclick="convertExpression()">
+                        Convert
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- RESULTS -->
+
+            <div class="expression-display">
+
+                <div class="expression-result">
+
+                    <span>
+                        INFIX
+                    </span>
+
+                    <p id="infix-display">
+                        -
+                    </p>
+
+                </div>
+
+
+                <div class="conversion-arrow">
+                    →
+                </div>
+
+
+                <div class="expression-result">
+
+                    <span>
+                        POSTFIX
+                    </span>
+
+                    <p id="postfix-display">
+                        -
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <h3 class="step-title">
+                Conversion Steps
+            </h3>
+
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>Symbol</th>
+                            <th>Stack</th>
+                            <th>Postfix</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="conversion-table">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+            <div id="expression-message"
+                class="message">
+
+                Enter an expression and click Convert.
+
+            </div>
+
+
+
+            <!-- POSTFIX EVALUATION -->
+
+            <div class="expression-box evaluation-box">
+
+                <h3>
+                    Postfix Evaluation
+                </h3>
+
+                <p class="small-description">
+                    Example: 23*5+
+                </p>
+
+
+                <div class="expression-input-row">
+
+                    <input
+                        type="text"
+                        id="postfix-input"
+                        placeholder="Enter postfix expression"
+                    >
+
+                    <button onclick="evaluatePostfix()">
+                        Evaluate
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="result-box">
+
+                <span>
+                    FINAL RESULT
+                </span>
+
+                <p id="evaluation-result">
+                    Result will appear here.
+                </p>
+
+            </div>
+
+
+            <h3 class="step-title">
+                Evaluation Steps
+            </h3>
+
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>Symbol</th>
+                            <th>Stack</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="evaluation-table">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= LINKED LIST ================= -->
+
+        <section id="linkedlist" class="data-section">
+
+            <span class="section-tag">
+                LINKED DATA STRUCTURE
+            </span>
+
+            <h2>Linked List Visualization</h2>
+
+            <p class="description">
+                A linked list consists of nodes connected using links.
+            </p>
+
+
+            <div class="visual-card">
+
+                <div class="linked-list-wrapper">
+
+                    <div class="head-label">
+                        HEAD ↓
+                    </div>
+
+
+                    <div id="linkedlist-container"
+                        class="visual-area linked-list-area">
+
+                        <p class="empty-message">
+                            Linked List is Empty
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="controls">
+
+                <input
+                    type="number"
+                    id="list-value"
+                    placeholder="Enter value"
+                >
+
+                <button onclick="insertNode()">
+                    Insert
+                </button>
+
+                <button onclick="deleteNode()"
+                    class="danger-button">
+                    Delete
+                </button>
+
+                <button onclick="displayList()"
+                    class="secondary-button">
+                    Traverse
+                </button>
+
+            </div>
+
+
+            <div id="list-message"
+                class="message">
+
+                Ready for Linked List operations.
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <p>
+            Data Structure Visualizer
+        </p>
+
+        <span>
+            Interactive Learning Project
+        </span>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
